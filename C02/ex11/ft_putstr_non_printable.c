@@ -19,7 +19,7 @@ int	ft_check_non_printable(char c)
 	return (0);
 }
 
-void	ft_print_hex(char c)
+void	ft_print_hex(unsigned char c)
 {
 	char	t;
 
@@ -44,16 +44,16 @@ void	ft_putstr_non_printable(char *str)
 	while (str[i] != '\0')
 	{
 		if (ft_check_non_printable(str[i]) == 1)
-			ft_print_hex(str[i]);
+			ft_print_hex((unsigned char)str[i]);
 		else
 			write(1, &str[i], 1);
 		++i;
 	}
 }
 
-/*
+// /*
 int main()
 {
-	ft_putstr_non_printable("Hello\nHow are you?");
+	ft_putstr_non_printable("Hello\200How are you?");
 }
-*/
+// */
