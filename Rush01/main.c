@@ -8,7 +8,10 @@ int main(int argc, char **argv)
 	
 }
 
-int	check_valid(int togh, int syun, int **arr);
+// int	check_valid(int togh, int syun, int **arr);
+// {
+// 	if (arr[])
+// }
 void	print(int **arr);
 
 void recursiv(int togh, int syun, int **arr, int *flag)
@@ -35,6 +38,3 @@ void recursiv(int togh, int syun, int **arr, int *flag)
 		++value;
 	}
 }
-
-// եթե սկսում եմ լրացնել ձախ վերևից ապա  քանի դեռ տողի վերջին չեմ հասել ուրեմն միայն ստուգում եմ ձախ տողի պայմանը իսկ հասնելուց հետո նաև աջի պայմանը
-// պայմանը
