@@ -59,7 +59,9 @@ void print_map(char **arr)
 char **create_matric(int n)
 {
 	char	**arr;
-	
+	int		i;
+
+	i = 0;	
 	arr = (char **)malloc((n + 2) * sizeof(int *));
 	if (arr == 0)
 		return 0;
@@ -71,16 +73,84 @@ char **create_matric(int n)
 	return (arr);
 }
 
-int main(int argc, char **argv)
+int	num_count(char *str)
+{
+	int	i;      //index
+	int	count;  //tveri qanak
+
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+	        if (str[i] >= '0' && str[i] <= '9')
+	                count++;
+	        i++;
+	}
+	return (count);
+}
+
+int	is_valid_symb(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == ' '))
+			return (0);
+		++i;
+	}
+	return (1);
+}
+
+int	numb_check(char *str, int n)
+{
+	int	i;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ' ')
+			++i;
+		else if (!(str[i] > '0' && str[i] <= n + '0'))
+		{
+			// printf("sxal nshany = %c", str[i]);
+			return (0);
+		}
+		++i;
+	}
+	return (1);
+}
+
+int	check_input_validation(char *str)
+{
+	int	count;
+
+	if (!is_valid_symb(str))
+	{
+		write(1, "Mutqayin toghum ka chtuylatrvac nish\n", 38);
+		return (-1);
+	}
+	count = num_count(str);
+	if (count % 4 != 0)
+	{
+		write(1, "Mutqayin toghum ezrayin paymannery teri en\n", 44);
+		return (-2);
+	}
+	if (!numb_check(str, count / 4))
+	{
+		printf("%d\n", count);
+		write(1, "Mutqayin toghum ka aravelaguynic mec tvanshan\n", 47);
+		return (-3);
+	}
+	return (0);	
+}
+
+void	init_matric_by_zero(char **arr, int n)
 {
 	int	i;
 	int	j;
-	char	**arr;
 
 	i = 0;
-	arr = create_matric
-	if (arr == 0)
-		return 0;
 	while (i < 6)
 	{
 		j = 0;
@@ -90,35 +160,59 @@ int main(int argc, char **argv)
 			++j;
 		}
 		++i;
-	}
-	init(arr, argv[1], 6);
-	print_map(arr);
+	}	
 }
 
-int     chech_opposites_columns(char **matr, int n)
+
+int     check_opposites_columns(char **matr, int n)
 {
     int     i;
 
 	i = 1;
     while (i <= n - 2)
     {
-        if (!((matr[0][i] + matr[n - 1][i]) <= n - 1))
+        if (!((matr[0][i] + matr[n - 1][i]) <= n - 1 + '0' + '0'))
+		{
+			printf("%d\n", matr[0][i] + matr[n - 1][i] -'0'-'0');
+			write(1, "Ughghahayac ezrayin paymanneric handipakacneri gumary mec e n + 1-ic\n", 70);
             return (0);
+		}
 		++i;
     }
 	return (1);
 }
 
-int     chech_opposites_rows(char **matr, int n)
+int     check_opposites_rows(char **matr, int n)
 {
     int     i;
 
     i = 1;
     while (i <= n - 2)
     {
-        if (!((matr[i][0] + matr[i][n - 1]) <= n - 1))
-                return (0);
+        if (!((matr[i][0] + matr[i][n - 1]) <= n - 1 + '0' + '0'))
+		{
+			write(1, "Horizonakan ezrayin paymanneric handipakacneri gumary mec e n + 1-ic\n", 70);
+			return (0);
+		}
 		++i;
     }
 	return (1);
 }
+
+	int main(int argc, char **argv)
+	{
+		char	**arr;
+		int		size;
+	
+		if (argc != 2 || check_input_validation(argv[1]) < 0)
+			return (-1);
+		size = num_count(argv[1]);
+		arr = create_matric(size / 4 + 2);
+		if (arr == 0)
+			return 0;
+		init_matric_by_zero(arr, size / 4 + 2);
+		init(arr, argv[1], size / 4 + 2);
+		print_map(arr);
+		if (!check_opposites_columns(arr, size / 4 + 2) || check_opposites_rows(arr, size / 4 + 2))
+			return 0;
+	}
