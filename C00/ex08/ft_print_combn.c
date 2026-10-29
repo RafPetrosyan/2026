@@ -94,10 +94,19 @@ void	ft_print_combn(int n)
 	write(1, "\n", 1);
 }
 
-/*
+
 #include <stdio.h>
-int main()
+#include <string.h>
+
+int main(int a, char **argv)
 {
-	ft_print_combn(9);
+    int i = 1;
+
+    while (i < 10)
+    {
+	    ft_print_combn(i);
+        write(1, "|||\n", 4);
+        ++i;
+    }
 }
-*/
+
