@@ -21,3 +21,10 @@ int	ft_strlen(char *str)
 		++i;
 	return (i);
 }
+
+/*
+int main()
+{
+	ft_strlen("a");
+}
+*/

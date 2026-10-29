@@ -6,7 +6,7 @@
 /*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:34:27 by rafipetr          #+#    #+#             */
-/*   Updated: 2026/10/22 20:25:05 by rafipetr         ###   ########.fr       */
+/*   Updated: 2026/10/26 17:15:14 by rafipetr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int	ft_check_non_printable(char c)
 	return (0);
 }
 
-void	ft_print_hex(unsigned char c)
+void	ft_print_hex(char a)
 {
-	char	t;
+	char			t;
+	unsigned char	c;
 
+	c = (unsigned char)a;
 	write(1, "\\", 1);
 	if (c / 16 > 9)
 		t = c / 16 + 87;
@@ -44,16 +46,16 @@ void	ft_putstr_non_printable(char *str)
 	while (str[i] != '\0')
 	{
 		if (ft_check_non_printable(str[i]) == 1)
-			ft_print_hex((unsigned char)str[i]);
+			ft_print_hex(str[i]);
 		else
 			write(1, &str[i], 1);
 		++i;
 	}
 }
 
-// /*
-int main()
+/*
+int	main()
 {
-	ft_putstr_non_printable("Hello\200How are you?");
+	ft_putstr_non_printable("hello\200nashxarh");
 }
-// */
+*/

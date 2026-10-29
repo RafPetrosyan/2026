@@ -6,7 +6,7 @@
 /*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:33:55 by rafipetr          #+#    #+#             */
-/*   Updated: 2026/10/22 20:08:50 by rafipetr         ###   ########.fr       */
+/*   Updated: 2026/10/26 17:10:48 by rafipetr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ char	*ft_strcapitalize(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if ((i == 0 || (!ft_char_is_alpha_or_number(str[i - 1])))
-			&& ft_char_is_lowercase(str[i]))
-			str[i] -= 32;
-		else if (str[i] >= 'A' && str[i] <= 'Z' && i != 0)
+		if (i == 0 || (!ft_char_is_alpha_or_number(str[i - 1])))
+		{
+			if (ft_char_is_lowercase(str[i]))
+				str[i] -= 32;
+		}
+		else if ((i != 0) && str[i] >= 'A' && str[i] <= 'Z')
 			str[i] += 32;
 		++i;
 	}
@@ -46,10 +48,10 @@ char	*ft_strcapitalize(char *str)
 
 /*
 #include <stdio.h>
-int main()
+int main(int argc, char **argv)
 {
-	char str[] = "Salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-	ft_strcapitalize(str);
-	printf("%s", str);
+	char str[] = " S";
+	ft_strcapitalize(argv[1]);
+	printf("%s", argv[1]);
 }
 */

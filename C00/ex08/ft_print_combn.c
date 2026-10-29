@@ -6,7 +6,7 @@
 /*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 11:42:26 by rafipetr          #+#    #+#             */
-/*   Updated: 2026/10/22 17:22:23 by rafipetr         ###   ########.fr       */
+/*   Updated: 2026/10/18 12:10:33 by rafipetr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ void	ft_print_combn(int n)
 	write(1, "\n", 1);
 }
 
-
+/*
 #include <stdio.h>
 int main()
 {
 	ft_print_combn(9);
 }
-
+*/

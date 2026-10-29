@@ -6,7 +6,7 @@
 /*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:32:42 by rafipetr          #+#    #+#             */
-/*   Updated: 2026/10/22 18:59:40 by rafipetr         ###   ########.fr       */
+/*   Updated: 2026/10/22 16:32:44 by rafipetr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ int	ft_str_is_alpha(char *str)
 	return (1);
 }
 
+/*
 #include <stdio.h>
 int main()
 {
-	char *str = "hellod1";
+	char *str = 0;
 	printf("%d", ft_str_is_alpha(str));
 }
+*/

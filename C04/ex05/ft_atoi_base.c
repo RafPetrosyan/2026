@@ -1,15 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/28 12:39:05 by rafipetr          #+#    #+#             */
+/*   Updated: 2026/10/28 12:39:07 by rafipetr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	check_base(char *base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (base == 0 || base[0] == '\0' || base[1] == '\0')
-		return 0;
+		return (0);
 	while (base[i + 1] != '\0')
 	{
 		j = i + 1;
-		if (!((base[i] >= 32 && base[i] <= 126) || (base[j] >= 32 && base[j] <= 126)))
+		if (!((base[i] >= 32 && base[i] <= 126)
+				|| (base[j] >= 32 && base[j] <= 126)))
 			return (0);
 		while (base[j] != '\0')
 		{
@@ -28,10 +41,10 @@ int	ft_isspace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == ' ')
 		return (1);
-	return (0);		
+	return (0);
 }
 
-int	ret_index(char* base, char c)
+int	ret_index(char *base, char c)
 {
 	int	i;
 

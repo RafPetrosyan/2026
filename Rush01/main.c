@@ -1,40 +1,44 @@
-int main(int argc, char **argv)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/25 18:33:25 by lmartiro          #+#    #+#             */
+/*   Updated: 2026/10/25 20:54:19 by lmartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+int		check_input(char *input);
+char	**create_matrix(int size);
+int		set_hints(char **matrix, int size, char *hints);
+void	solve(int y, int x, char **matrix, int *stop);
+
+int	main(int argc, char **argv)
 {
+	int		size;
+	char	**matrix;
+	int		stop;
+
+	stop = 0;
 	if (argc != 2)
-		return 0;
-	int	value = 1;
-	while (value <= 4)
-
-	
-}
-
-// int	check_valid(int togh, int syun, int **arr);
-// {
-// 	if (arr[])
-// }
-void	print(int **arr);
-
-void recursiv(int togh, int syun, int **arr, int *flag)
-{
-	int	value;
-
-	value = 1;
-	while (value <= 4)
+		write(1, "Error\n", 6);
+	else
 	{
-		arr[togh][syun] = value;
-		if (check_valid(togh, syun, arr) == 1 && (togh == 4 && syun == 4))
+		size = check_input(argv[1]);
+		if (size)
 		{
-			*flag = 1;
-			print_arr(arr);
+			matrix = create_matrix(size + 2);
+			if (set_hints(matrix, size, argv[1]))
+				solve(1, 1, matrix, &stop);
+			if (stop == 0)
+				write(1, "Error\n", 6);
 		}
-		else if (check_valid(togh, syun, arr) == 1 && syun != 4)
-			recursiv(togh, syun + 1, arr, flag);
-		else if (check_valid(togh, syun, arr) == 1 && syun == 4)
-			recursiv(togh + 1, syun, arr, flag);
 		else
-			arr[togh][syun] = 0;
-		if (*flag == 1)
-			return;
-		++value;
+			write(1, "Error\n", 6);
 	}
+	return (0);
 }

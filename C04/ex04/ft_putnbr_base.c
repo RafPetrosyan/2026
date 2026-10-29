@@ -1,17 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/28 12:33:15 by rafipetr          #+#    #+#             */
+/*   Updated: 2026/10/28 12:36:55 by rafipetr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 int	check_base(char *base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (base == 0 || base[0] == '\0' || base[1] == '\0')
-		return 0;
+		return (0);
 	while (base[i + 1] != '\0')
 	{
 		j = i + 1;
-		if (!((base[i] >= 32 && base[i] <= 126) || (base[j] >= 32 && base[j] <= 126)))
+		if (!((base[i] >= 32 && base[i] <= 126)
+				|| (base[j] >= 32 && base[j] <= 126)))
 			return (0);
 		while (base[j] != '\0')
 		{
@@ -28,7 +41,6 @@ int	check_base(char *base)
 
 void	rec_putnbr(long nbr, char *base, int akan)
 {
-
 	if (nbr < 0)
 	{
 		write(1, "-", 1);
@@ -39,13 +51,13 @@ void	rec_putnbr(long nbr, char *base, int akan)
 	write(1, &base[nbr % akan], 1);
 }
 
-void    ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(int nbr, char *base)
 {
-	int		akan;
+	int	akan;
 
 	akan = 0;
 	while (base[akan] != '\0')
-		++akan;		
+		++akan;
 	if (check_base(base) == 1)
 	{
 		rec_putnbr((long)nbr, base, akan);

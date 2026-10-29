@@ -33,3 +33,10 @@ void	ft_putnbr(int nb)
 	c = nb % 10 + '0';
 	write(1, &c, 1);
 }
+
+/*
+int main()
+{
+	ft_putnbr(587);
+}
+*/

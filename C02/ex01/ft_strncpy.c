@@ -6,7 +6,7 @@
 /*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:32:19 by rafipetr          #+#    #+#             */
-/*   Updated: 2026/10/22 18:56:26 by rafipetr         ###   ########.fr       */
+/*   Updated: 2026/10/22 16:32:32 by rafipetr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
+/*
 #include <string.h>
 #include <stdio.h>
 
@@ -47,3 +48,4 @@ int	main()
 	printf("original: %s\n", dest);
 
 }
+*/
