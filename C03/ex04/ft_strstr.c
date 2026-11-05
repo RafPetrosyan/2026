@@ -6,7 +6,7 @@
 /*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 16:00:04 by rafipetr          #+#    #+#             */
-/*   Updated: 2026/10/27 16:00:52 by rafipetr         ###   ########.fr       */
+/*   Updated: 2026/10/30 15:22:19 by rafipetr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strstr(char *str, char *to_find)
 	int	j;
 
 	i = 0;
+	if (to_find[0] == '\0')
+		return (str);
 	while (str[i] != '\0')
 	{
 		j = 0;
@@ -32,7 +34,7 @@ char	*ft_strstr(char *str, char *to_find)
 	return (0);
 }
 
-/*
+
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -45,4 +47,4 @@ int main(int argc, char **argv)
 	printf("original = \"%s\"\n", strstr(argv[1], argv[2]));
 	printf("my = \"%s\"\n", ft_strstr(argv[1], argv[2]));
 }
-*/
+

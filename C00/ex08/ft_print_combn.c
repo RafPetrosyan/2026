@@ -6,7 +6,7 @@
 /*   By: rafipetr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 11:42:26 by rafipetr          #+#    #+#             */
-/*   Updated: 2026/10/18 12:10:33 by rafipetr         ###   ########.fr       */
+/*   Updated: 2026/10/30 14:45:43 by rafipetr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,22 +91,12 @@ void	ft_print_combn(int n)
 		}
 		++i;
 	}
-	write(1, "\n", 1);
 }
 
-
+/*
 #include <stdio.h>
-#include <string.h>
-
-int main(int a, char **argv)
+int main()
 {
-    int i = 1;
-
-    while (i < 10)
-    {
-	    ft_print_combn(i);
-        write(1, "|||\n", 4);
-        ++i;
-    }
+	ft_print_combn(9);
 }
-
+*/

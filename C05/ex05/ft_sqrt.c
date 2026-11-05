@@ -10,9 +10,10 @@ int ft_sqrt(int nb)
     return (0);
 }
 
-
+/*
 #include <stdio.h>
 int main()
 {
 	printf("%d", ft_sqrt(9));
 }
+*/
